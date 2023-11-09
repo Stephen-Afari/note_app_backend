@@ -87,10 +87,7 @@ res.status(500).json({
 
     
 if (err.isOperational) {
-      res.status(err.statusCode).json({
-        title: "Something went wrong!",
-        msg: err.message,
-      });
+      res.status(err.statusCode)
     } else {
       // Programming or other unknown error, don't leak error details.
 
