@@ -47,48 +47,111 @@ const sendErrorDev = (err, req, res) => {
 //     msg: err.message,
 //   });
 // };
-//
+
 const sendErrorProd = (err, req, res) => {
-  //Operational trusted error, send message to client
+  // Check if the response has already been sent.
+  if (res.headersSent) {
+    // If the response has already been sent, then log a warning and return.
+    console.warn("Response has already been sent, cannot send JSON error response.");
+    return;
+  }
+
+  // Operational trusted error, send message to client.
   if (req.originalUrl.startsWith("/api")) {
-    //a) API
-    if (err.isOperational) {
+    // API
+
+    
+if (err.isOperational) {
       res.status(err.statusCode).json({
         status: err.status,
         message: err.message,
       });
-      //Programming or other unknown error, don't leak error details
     } else {
-      //1) Log the error
-      console.error("ERROR ", err);
-      //2) Send a Generic message
-      return res.status(500).json({
+      // Programming or other unknown error, don't leak error details.
+
+      
+// 1. Log the error.
+
+      
+console.error("ERROR ", err);
+      // 2. Send a generic message.
+
+      
+res.status(500).json({
         status: "error",
         message: "Something went very wrong!",
       });
     }
-  } //This is the else part of the code
-  //b) RENDERED WEBSITE
-  if (err.isOperational) {
-    res.status(err.statusCode).json({
-      title: "Something went wrong!",
-      msg: err.message,
-    });
-    // if (err.isOperational) {
-    //   res.status(err.statusCode).render("error", {
-    //     title: "Something went wrong!",
-    //     msg: err.message,
-    //   });
-    //Programming or other unknown error, don't leak error details
+  } else {
+    // Rendered website.
+
+    
+if (err.isOperational) {
+      res.status(err.statusCode).json({
+        title: "Something went wrong!",
+        msg: err.message,
+      });
+    } else {
+      // Programming or other unknown error, don't leak error details.
+
+      
+// 1. Log the error.
+
+      
+console.error("ERROR ", err);
+      // 2. Send a generic message.
+      res.status(err.statusCode).json({
+        title: "Something went wrong!",
+        msg: "Please try again later.",
+      });
+    }
   }
-  //1) Log the error
-  console.error("ERROR ", err);
-  //2) Send a Generic message
-  return res.status(err.statusCode).json({
-    title: "Something went wrong!",
-    msg: "Please try again later",
-  });
 };
+
+
+
+//
+// const sendErrorProd = (err, req, res) => {
+//   //Operational trusted error, send message to client
+//   if (req.originalUrl.startsWith("/api")) {
+//     //a) API
+//     if (err.isOperational) {
+//       res.status(err.statusCode).json({
+//         status: err.status,
+//         message: err.message,
+//       });
+//       //Programming or other unknown error, don't leak error details
+//     } else {
+//       //1) Log the error
+//       console.error("ERROR ", err);
+//       //2) Send a Generic message
+//       return res.status(500).json({
+//         status: "error",
+//         message: "Something went very wrong!",
+//       });
+//     }
+//   } //This is the else part of the code
+//   //b) RENDERED WEBSITE
+//   if (err.isOperational) {
+//     res.status(err.statusCode).json({
+//       title: "Something went wrong!",
+//       msg: err.message,
+//     });
+//     // if (err.isOperational) {
+//     //   res.status(err.statusCode).render("error", {
+//     //     title: "Something went wrong!",
+//     //     msg: err.message,
+//     //   });
+//     //Programming or other unknown error, don't leak error details
+//   }
+//   //1) Log the error
+//   console.error("ERROR ", err);
+//   //2) Send a Generic message
+//   return res.status(err.statusCode).json({
+//     title: "Something went wrong!",
+//     msg: "Please try again later",
+//   });
+// };
 
 // console.error("ERROR ", err);
 // //2) Send a Generic message
