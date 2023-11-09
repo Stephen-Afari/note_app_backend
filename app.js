@@ -33,6 +33,7 @@ const notes = JSON.parse(fs.readFileSync(`${__dirname}/dev-data/notes.json`));
 //
 app.use("/api/v1/notes", noteRouter);
 app.use("/api/v1/users", userRouter);
+app.use("/", "Hello")
 //Routing - how the app responds to request or url
 // app.get("/api/v1/notes", (req, res) => {
 //   res.status(200).json({
