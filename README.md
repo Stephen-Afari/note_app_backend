@@ -17,8 +17,10 @@ Architecture
 
 
 The MVC architecture is implemented here.
+
 Model: Everything concerned with the application's data and business logic. We have the Note Model and the User Model implemented by means of the Schema. We have implemented pre-save hooks
 which occurs between the moment we receive data and the moment it is persisted through the database.
+
 Controller: This handles the application's requests, interacts with the models and send back responses to the client. This is the application logion. The controllers in this application are:
 1. noteController (handles note creation, update, deletion and getting all notes)
 2. AuthController (Authorization: handles the login,protects the routes with a Jason web token, signup, logout etc) and
