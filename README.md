@@ -1,10 +1,13 @@
 Project Title
+
 Full Stack Note Application Backend
 
 Deployed Application
+
 https://note-app-client-a1pt.onrender.com/login
 
 Technologies
+
 MongoDB, Express, NodeJS, Postman
 
 Architecture
