@@ -8,11 +8,16 @@ Technologies
 MongoDB, Express, NodeJS, Postman
 
 Architecture
+<img width="453" alt="MVCArch" src="https://github.com/Stephen-Afari/note_app_backend/assets/62534292/efc29358-9bc9-4b6c-aec1-58bd932c6ebd">
+
+
 The MVC architecture is implemented here.
 Model: Everything concerned with the application's data and business logic. We have the Note Model and the User Model implemented by means of the Schema. We have implemented pre-save hooks
 which occurs between the moment we receive data and the moment it is persisted through the database.
 Controller: This handles the application's requests, interacts with the models and send back responses to the client. This is the application logion. The controllers in this application are:
-1. noteController (handles note creation, update, deletion and getting all notes)  2. AuthController (Authorization: handles the login,protects the routes with a Jason web token, signup, logout etc) and 3. ErrorController (handles operational erros)
+1. noteController (handles note creation, update, deletion and getting all notes)
+2. AuthController (Authorization: handles the login,protects the routes with a Jason web token, signup, logout etc) and
+3. ErrorController (handles operational erros)
 View: This is the graphical user interface, which is the React application already discussed in the note client app stored in this github repository.
    
 Overview
@@ -28,4 +33,4 @@ user Route: Once a request hits this route, it enables a user to sign-up, login 
 bcrypt Algorithm: This has been implemented to salt(added random strings) and hash our passwords in order to make it strong to protect it from brute force attached
 
 Project Structure
-
+<img width="153" alt="ProjectStructure" src="https://github.com/Stephen-Afari/note_app_backend/assets/62534292/91098e4a-5b19-4ae4-a999-951b4e5fbcbf">
