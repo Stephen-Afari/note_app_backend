@@ -8,6 +8,8 @@ Technologies
 MongoDB, Express, NodeJS, Postman
 
 Architecture
+
+
 <img width="453" alt="MVCArch" src="https://github.com/Stephen-Afari/note_app_backend/assets/62534292/efc29358-9bc9-4b6c-aec1-58bd932c6ebd">
 
 
@@ -33,4 +35,5 @@ user Route: Once a request hits this route, it enables a user to sign-up, login 
 bcrypt Algorithm: This has been implemented to salt(added random strings) and hash our passwords in order to make it strong to protect it from brute force attached
 
 Project Structure
+
 <img width="153" alt="ProjectStructure" src="https://github.com/Stephen-Afari/note_app_backend/assets/62534292/91098e4a-5b19-4ae4-a999-951b4e5fbcbf">
