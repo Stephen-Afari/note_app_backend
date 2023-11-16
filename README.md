@@ -25,6 +25,7 @@ Controller: This handles the application's requests, interacts with the models a
 1. noteController (handles note creation, update, deletion and getting all notes)
 2. AuthController (Authorization: handles the login,protects the routes with a Jason web token, signup, logout etc) and
 3. ErrorController (handles operational errors)
+
 View: This is the graphical user interface, which is the React application already discussed in the note client app stored in this github repository.
    
 Overview
